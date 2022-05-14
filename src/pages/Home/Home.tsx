@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import style from './Home.style';
 import { useHomeView } from './Home.hook';
-import { HomeViewFirstComponent } from './FirstComponent/HomeViewFirstComponent';
-import { HomeViewSecondComponent } from './SecondComponent/HomeViewSecondComponent';
+import { HomeList } from './List/HomeList';
+import { HomeListItem } from './List/Item/HomeListItem';
 
 /**
  * REMARKS :
@@ -20,12 +20,9 @@ export const Home: React.FC = () => {
             {/*The logic behind the value of the message is placed in the .hook file*/}
             <Text>{h.message}</Text>
             {/* use h.handlePressOnFirstComponent and not () => h.handlePressOnFirstComponent() (shortened writing)*/}
-            <HomeViewFirstComponent
-                onPress={h.handlePressOnFirstComponent}
-                title={h.firstComponentTitle}
-            />
+            <HomeList onPress={h.handlePressOnFirstComponent} title={h.firstComponentTitle} />
             {/* No shortened writing because of the parameter 'id'*/}
-            <HomeViewSecondComponent
+            <HomeListItem
                 ids={h.ids}
                 onPress={(id: number) => h.handlePressOnSecondComponent(id)}
                 title={h.secondComponentTitle}

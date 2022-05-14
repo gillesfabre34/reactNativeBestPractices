@@ -1,4 +1,4 @@
-import { HomeViewFirstComponentProps } from './HomeViewFirstComponent';
+import { HomeViewFirstComponentProps } from './HomeList';
 
 /**
  * REMARKS :

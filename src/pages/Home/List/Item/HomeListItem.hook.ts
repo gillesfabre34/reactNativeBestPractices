@@ -1,4 +1,4 @@
-import { HomeViewSecondComponentProps } from './HomeViewSecondComponent';
+import { HomeViewSecondComponentProps } from './HomeListItem';
 
 /**
  * REMARKS :

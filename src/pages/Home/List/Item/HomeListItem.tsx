@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import style from './HomeViewSecondComponent.style';
-import { useHomeViewSecondComponent } from './HomeViewSecondComponent.hook';
+import style from './HomeListItem.style';
+import { useHomeViewSecondComponent } from './HomeListItem.hook';
 
 export interface HomeViewSecondComponentProps {
     ids: number[];
@@ -17,7 +17,7 @@ export interface HomeViewSecondComponentProps {
  - All the logic is placed in the .hook file
  - The JSX itself does not contain any logic
  **/
-export const HomeViewSecondComponent: React.FC<HomeViewSecondComponentProps> = (props) => {
+export const HomeListItem: React.FC<HomeViewSecondComponentProps> = (props) => {
     const h = useHomeViewSecondComponent(props);
     return (
         <View style={style.container}>

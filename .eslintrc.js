@@ -5,6 +5,7 @@ module.exports = {
     plugins: ['@typescript-eslint', 'flowtype'],
     rules: {
         curly: 0,
+        'no-shadow': 'off',
     },
     env: {
         jest: true,
