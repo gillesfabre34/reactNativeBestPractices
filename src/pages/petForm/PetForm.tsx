@@ -1,7 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Button, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { usePetForm } from './PetForm.hook';
 import style from './PetForm.style';
+import i18n from '../../shared/i18n/i18n';
+import { CustomButton } from '../../shared/components/customButton/CustomButton';
+import { Formik } from 'formik';
 
 /**
  * REMARKS :
@@ -15,9 +18,38 @@ export const PetForm: React.FC = () => {
     return (
         <View style={style.container}>
             <Text>{h.title}</Text>
-            <TouchableOpacity style={style.content} onPress={h.goBackToHomeView}>
-                <Text>Go back to Home view</Text>
-            </TouchableOpacity>
+            <Formik
+                enableReinitialize
+                validateOnMount
+                initialValues={h.initialValues}
+                onSubmit={h.onSubmit}
+                validationSchema={h.petFormSchema()}>
+                {({
+                    values,
+                    setFieldValue,
+                    handleChange,
+                    handleSubmit,
+                    touched,
+                    errors,
+                    handleBlur,
+                    isValid,
+                }) => (
+                    <View>
+                        <TextInput
+                            placeholder={h.name}
+                            value={values.name}
+                            setValue={handleChange('name')}
+                            onBlur={handleBlur('name')}
+                            error={errors.name && touched.name ? errors.name : undefined}
+                        />
+                        <CustomButton
+                            title={h.submitButtonText}
+                            onPress={handleSubmit}
+                            disabled={!isValid}
+                        />
+                    </View>
+                )}
+            </Formik>
         </View>
     );
 };

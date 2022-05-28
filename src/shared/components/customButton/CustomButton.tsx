@@ -3,11 +3,12 @@ import { Button } from 'react-native';
 import { useCustomButton } from './CustomButton.hook';
 
 export interface CustomButtonProps {
+    disabled?: boolean;
     onPress: () => any;
     title: string;
 }
 
 export const CustomButton: React.FC<CustomButtonProps> = (props) => {
     const h = useCustomButton(props);
-    return <Button title={h.title} onPress={h.onPress} color={'#dddddd'} />;
+    return <Button title={h.title} onPress={h.onPress} color={'#dddddd'} disabled={h.disabled} />;
 };

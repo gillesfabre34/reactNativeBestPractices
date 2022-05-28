@@ -2,6 +2,8 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { HomeNavigation } from '../home/Home.nav';
 import { PetFormRoute } from './PetForm.nav';
 import i18n from '../../shared/i18n/i18n';
+import { Routes } from '../../router/Routes';
+import { getPetSchema } from './PetForm.schema';
 
 /**
  * REMARKS :
@@ -11,14 +13,25 @@ import i18n from '../../shared/i18n/i18n';
 export const usePetForm = () => {
     const { pet } = useRoute<PetFormRoute>().params;
     const { navigate: navToHomeView } = useNavigation<HomeNavigation>();
-    const title: string = pet ? i18n.t('PetForm.UpdateThePet') : i18n.t('PetForm.AddANewPet');
+    const title = pet ? i18n.t('PetForm.updateThePet') : i18n.t('PetForm.addANewPet');
+    const submitButtonText = pet ? i18n.t('PetForm.update') : i18n.t('PetForm.add');
+    const name = i18n.t('PetForm.name');
+    const age = i18n.t('PetForm.age');
+    const initialValues = pet || { age: '', name: '' };
+    const petFormSchema = getPetSchema();
 
-    const goBackToHomeView = () => {
-        navToHomeView(FeaturesRoutes.MyHomeView, { navigateFrom: 'Second view' });
+    const onSubmit = () => {
+        // do some stuff
+        navToHomeView(Routes.Home);
     };
 
     return {
-        goBackToHomeView,
+        age,
+        initialValues,
+        name,
+        onSubmit,
+        petFormSchema,
+        submitButtonText,
         title,
     };
 };
