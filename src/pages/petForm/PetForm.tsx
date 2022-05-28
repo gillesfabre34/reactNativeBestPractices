@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { useSecondView } from './PetForm.hook';
+import { usePetForm } from './PetForm.hook';
 import style from './PetForm.style';
 
 /**
@@ -10,12 +10,11 @@ import style from './PetForm.style';
  - All the logic is placed in the .hook file
  - The JSX itself does not contain any logic
  **/
-export const TodoForm: React.FC = () => {
-    const h = useSecondView();
+export const PetForm: React.FC = () => {
+    const h = usePetForm();
     return (
         <View style={style.container}>
-            <Text>Second view</Text>
-            <Text>{h.message}</Text>
+            <Text>{h.title}</Text>
             <TouchableOpacity style={style.content} onPress={h.goBackToHomeView}>
                 <Text>Go back to Home view</Text>
             </TouchableOpacity>

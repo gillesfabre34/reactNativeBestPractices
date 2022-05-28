@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import style from './HomeList.style';
-import { useMyFirstViewFirstComponent } from './HomeList.hook';
+import { useHomeList } from './HomeList.hook';
+import { Pet } from '../../../shared/interfaces/Pet.interface';
 
-export interface HomeViewFirstComponentProps {
-    onPress: () => void;
-    title: string;
+export interface HomeListProps {
+    onPress: (pet: Pet) => void;
+    pets: Pet[];
 }
 
 /**
@@ -16,8 +17,8 @@ export interface HomeViewFirstComponentProps {
  - All the logic is placed in the .hook file
  - The JSX itself does not contain any logic
  **/
-export const HomeList: React.FC<HomeViewFirstComponentProps> = (props) => {
-    const h = useMyFirstViewFirstComponent(props); // The "h" means "hook"
+export const HomeList: React.FC<HomeListProps> = (props) => {
+    const h = useHomeList(props); // The "h" means "hook"
     return (
         <View style={style.container}>
             <>
