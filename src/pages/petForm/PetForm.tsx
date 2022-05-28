@@ -5,7 +5,7 @@ import style from './PetForm.style';
 
 /**
  * REMARKS :
- - A view is not included in some component => a view should not have any props
+ - A page is not included in some component => a page should not have props
  - No logic in this file: only JSX !
  - All the logic is placed in the .hook file
  - The JSX itself does not contain any logic

@@ -2,8 +2,8 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Routes } from '../../router/Routes';
 
 /**
- * The type HomeViewNav is used to specify the params needed by the view HomeView
- * This type is not exported, because only HomeViewRoute and HomeViewNavigation should be used
+ * The type HomeNav is used to specify the params needed by the page Home
+ * This type is not exported, because only HomeNavigation should be used
  */
 type HomeNav = {
     [Routes.Home]: undefined;

@@ -1,4 +1,6 @@
 import { HomeListProps } from './HomeList';
+import { Pet } from '../../../shared/interfaces/Pet.interface';
+import i18n from '../../../shared/i18n/i18n';
 
 /**
  * REMARKS :
@@ -7,16 +9,17 @@ import { HomeListProps } from './HomeList';
  **/
 export const useHomeList = (props: HomeListProps) => {
     const { onPress } = props;
+    const title = i18n.t('HomeList.petsList');
 
-    const handlePress = () => {
+    const handlePress = (pet: Pet) => {
         // Do some stuff
-
         // Call the onPress prop
-        onPress();
+        onPress(pet);
     };
 
     return {
         ...props,
         handlePress,
+        title,
     };
 };

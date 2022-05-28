@@ -1,22 +1,13 @@
-import { HomeViewSecondComponentProps } from './HomeListItem';
+import { HomeListItemProps } from './HomeListItem';
+import i18n from '../../../../shared/i18n/i18n';
 
-/**
- * REMARKS :
- - This hook is the custom hook of the component HomeViewSecondComponent. Its includes all its logic
- - No JSX in a .hook file (=> its extension should be .ts and not .tsx)
- **/
-export const useHomeViewSecondComponent = (props: HomeViewSecondComponentProps) => {
-    const { onPress } = props;
-
-    const handlePressReturnId = (id: number) => {
-        // Do some stuff
-
-        // Call the onPress prop
-        onPress(id);
-    };
-
+export const useHomeListItem = (props: HomeListItemProps) => {
+    const { pet } = props;
+    const name = `${i18n.t('HomeListItem.name')}: ${pet.name}`;
+    const age = `${i18n.t('HomeListItem.age')}: ${pet.age.toString()}`;
     return {
         ...props,
-        handlePressReturnId,
+        age,
+        name,
     };
 };
