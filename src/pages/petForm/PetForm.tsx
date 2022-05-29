@@ -1,14 +1,13 @@
 import React from 'react';
-import { Button, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 import { usePetForm } from './PetForm.hook';
 import style from './PetForm.style';
-import i18n from '../../shared/i18n/i18n';
 import { CustomButton } from '../../shared/components/customButton/CustomButton';
 import { Formik } from 'formik';
 
 /**
  * REMARKS :
- - A page is not included in some component => a page should not have props
+ - A page is not included in a component => a page should not have props
  - No logic in this file: only JSX !
  - All the logic is placed in the .hook file
  - The JSX itself does not contain any logic
